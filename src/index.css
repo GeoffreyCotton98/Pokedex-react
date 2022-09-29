@@ -1,3 +1,5 @@
+@import url("http://fonts.cdnfonts.com/css/depixel");
+
 * {
   box-sizing: border-box;
 }
@@ -6,6 +8,7 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
+  font-family: "DePixel", sans-serif;
 }
 
 .header {
@@ -24,16 +27,54 @@ body {
   margin-top: 2em;
 }
 
+.pokemonCard:hover {
+  transform: translateY(-6px);
+  transition: all 0.2s;
+}
+
 .pokemonCard {
   min-height: 300px;
   width: auto;
   position: relative;
-  background-color: rgb(232, 121, 17);
+  background-color: rgb(34, 181, 34);
   border-radius: 40px;
   box-shadow: 3px 3px 3px grey;
   transition: all 0.2s;
+  z-index: -1;
+  overflow: hidden;
 }
-.pokemonCard:hover {
-  transform: translateY(-6px);
-  transition: all 0.2s;
+
+.pokeIcon {
+  position: absolute;
+  transform: translate(70px, 70px);
+  bottom: 1px;
+  right: 1px;
+  opacity: 0.13;
+  z-index: 0;
+}
+
+.pokemonName {
+  font-size: 37px;
+  font-weight: bold;
+  color: white;
+}
+
+.pokemonType {
+  background: rgba(253, 253, 253, 0.2);
+  font-size: 19px;
+  color: white;
+  min-width: 35%;
+  height: 34px;
+  display: flex;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemonImage {
+  height: 240px;
+  width: 240px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 100;
 }

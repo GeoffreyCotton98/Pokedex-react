@@ -27,6 +27,21 @@ body {
   margin-top: 2em;
 }
 
+button {
+  padding: 2rem;
+  width: 200px;
+  margin: 5px;
+  color: white;
+  background-color: aqua;
+  border: none;
+  transition: all 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  transition: all 0.2s;
+}
+
 .pokemonCard:hover {
   transform: translateY(-6px);
   transition: all 0.2s;
@@ -36,12 +51,67 @@ body {
   min-height: 300px;
   width: auto;
   position: relative;
-  background-color: rgb(34, 181, 34);
+  background-color: rgb(143, 146, 143);
   border-radius: 40px;
   box-shadow: 3px 3px 3px grey;
   transition: all 0.2s;
   z-index: -1;
   overflow: hidden;
+}
+.pokemonCard.grass {
+  background-color: #7ac74c;
+}
+.pokemonCard.fire {
+  background-color: #ee8130;
+}
+.pokemonCard.water {
+  background-color: #6390f0;
+}
+.pokemonCard.bug {
+  background-color: #a6b91a;
+}
+.pokemonCard.normal {
+  background-color: #a8a77a;
+}
+.pokemonCard.poison {
+  background-color: #a33ea1;
+}
+.pokemonCard.electric {
+  background-color: #f7d02c;
+}
+.pokemonCard.ground {
+  background-color: #e2bf65;
+}
+.pokemonCard.fairy {
+  background-color: #d685ad;
+}
+.pokemonCard.ghost {
+  background-color: #735797;
+}
+.pokemonCard.ice {
+  background-color: #96d9d6;
+}
+
+.pokemonCard.fighting {
+  background-color: #c22e28;
+}
+.pokemonCard.psychic {
+  background-color: #f95587;
+}
+.pokemonCard.rock {
+  background-color: #b6a136;
+}
+.pokemonCard.steel {
+  background-color: #b7b7ce;
+}
+.pokemonCard.dark {
+  background-color: #705746;
+}
+.pokemonCard.dragon {
+  background-color: #6f35fc;
+}
+.pokemonCard.flying {
+  background-color: #a98ff3;
 }
 
 .pokeIcon {
@@ -64,6 +134,19 @@ body {
   font-size: 19px;
   color: white;
   min-width: 35%;
+  margin: 0px 2px;
+  height: 34px;
+  display: flex;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+}
+.pokemonType {
+  background: rgba(253, 253, 253, 0.2);
+  font-size: 19px;
+  color: white;
+  min-width: 35%;
+  margin: 0px 2px;
   height: 34px;
   display: flex;
   border-radius: 100px;

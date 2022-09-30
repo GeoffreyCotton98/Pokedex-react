@@ -7,11 +7,11 @@ function SearchBar() {
   return (
     <>
       <nav className="nav">
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={10} lg={10}>
+        <Grid container spacing={1}>
+          <Grid item xs={8} md={8} lg={8}>
             <Textfield fullWidth />
           </Grid>
-          <Grid item xs={12} md={2} lg={2}>
+          <Grid item xs={4} md={4} lg={4}>
             <GenSelect />
           </Grid>
         </Grid>

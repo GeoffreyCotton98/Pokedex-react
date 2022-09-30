@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SearchBar from "./Components/SearchBar";
 
 import AllPokemon from "./Components/AllPokemon";
 import SinglePokemon from "./Components/SinglePokemon";
@@ -10,7 +9,6 @@ function App() {
     <>
       <Header />
       <div className="backGround"></div>
-      <SearchBar />
       <Router>
         <Routes>
           <Route exact path="/" element={<AllPokemon />} />

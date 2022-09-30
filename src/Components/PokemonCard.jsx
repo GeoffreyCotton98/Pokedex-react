@@ -2,11 +2,14 @@ import React from "react";
 import { Grid } from "@mui/material";
 import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function PokemonCard({ pokemon }) {
   const [pokeData, setPokeData] = useState([]);
   const [pokeTypes, setPokeTypes] = useState([]);
   const [cardColor, setCardColor] = useState();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getPokeData = async () => {
@@ -28,7 +31,14 @@ function PokemonCard({ pokemon }) {
   };
   return (
     <>
-      <Grid item xs={12} md={6} lg={4} className={"hoverBox"}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        lg={4}
+        className={"hoverBox"}
+        onClick={() => navigate(`/Pokemon/${pokeData.id}`)}
+      >
         <div className={`pokemonCard ${cardColor} `}>
           <Grid
             container

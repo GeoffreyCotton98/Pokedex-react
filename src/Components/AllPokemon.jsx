@@ -48,7 +48,7 @@ function AllPokemon() {
       <Container
         maxWidth="xl"
         sx={{
-          mt: 4,
+          mt: 12,
         }}
       >
         <Grid container spacing={3}>

@@ -8,7 +8,20 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
+  position: relative;
   font-family: "DePixel", sans-serif;
+}
+.backGround {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: url(./img/bg.jpeg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: saturate(100%) brightness(70%) blur(3px);
+  z-index: -100;
 }
 
 .header {
@@ -26,14 +39,25 @@ body {
   margin: auto;
   margin-top: 2em;
 }
+.hoverBox {
+  transition: transform 0.2s;
+}
+
+.hoverBox:hover {
+  transform: translateY(-5px);
+  transition: transform 0.2s;
+}
 
 button {
   padding: 2rem;
-  width: 200px;
-  margin: 5px;
-  color: white;
-  background-color: aqua;
-  border: none;
+  width: 250px;
+  margin: 5px 10px;
+  font-family: inherit;
+  font-size: 22px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border: 3px black solid;
+  border-radius: 50px;
   transition: all 0.2s;
 }
 
@@ -42,9 +66,8 @@ button:hover {
   transition: all 0.2s;
 }
 
-.pokemonCard:hover {
-  transform: translateY(-6px);
-  transition: all 0.2s;
+.buttons {
+  display: flex;
 }
 
 .pokemonCard {
@@ -53,65 +76,86 @@ button:hover {
   position: relative;
   background-color: rgb(143, 146, 143);
   border-radius: 40px;
-  box-shadow: 3px 3px 3px grey;
+  box-shadow: 8px 8px 30px grey;
   transition: all 0.2s;
   z-index: -1;
   overflow: hidden;
 }
+.pokemonCard:hover {
+  transform: translateY(-10px);
+}
 .pokemonCard.grass {
   background-color: #7ac74c;
+  box-shadow: 12px 12px 30px #7ac74c;
 }
 .pokemonCard.fire {
   background-color: #ee8130;
+  box-shadow: 12px 12px 30px #ee8130;
 }
 .pokemonCard.water {
   background-color: #6390f0;
+  box-shadow: 12px 12px 30px #6390f0;
 }
 .pokemonCard.bug {
   background-color: #a6b91a;
+  box-shadow: 12px 12px 30px #a6b91a;
 }
 .pokemonCard.normal {
   background-color: #a8a77a;
+  box-shadow: 12px 12px 30px #a8a77a;
 }
 .pokemonCard.poison {
   background-color: #a33ea1;
+  box-shadow: 12px 12px 30px #a33ea1;
 }
 .pokemonCard.electric {
   background-color: #f7d02c;
+  box-shadow: 12px 12px 30px #f7d02c;
 }
 .pokemonCard.ground {
   background-color: #e2bf65;
+  box-shadow: 12px 12px 30px #e2bf65;
 }
 .pokemonCard.fairy {
   background-color: #d685ad;
+  box-shadow: 12px 12px 30px #d685ad;
 }
 .pokemonCard.ghost {
   background-color: #735797;
+  box-shadow: 12px 12px 30px #735797;
 }
 .pokemonCard.ice {
   background-color: #96d9d6;
+  box-shadow: 12px 12px 30px #96d9d6;
 }
 
 .pokemonCard.fighting {
   background-color: #c22e28;
+  box-shadow: 12px 12px 30px #c22e28;
 }
 .pokemonCard.psychic {
   background-color: #f95587;
+  box-shadow: 12px 12px 30px #f95587;
 }
 .pokemonCard.rock {
   background-color: #b6a136;
+  box-shadow: 12px 12px 30px #b6a136;
 }
 .pokemonCard.steel {
   background-color: #b7b7ce;
+  box-shadow: 12px 12px 30px #b7b7ce;
 }
 .pokemonCard.dark {
   background-color: #705746;
+  box-shadow: 12px 12px 30px #705746;
 }
 .pokemonCard.dragon {
   background-color: #6f35fc;
+  box-shadow: 12px 12px 30px #6f35fc;
 }
 .pokemonCard.flying {
   background-color: #a98ff3;
+  box-shadow: 12px 12px 30px #a98ff3;
 }
 
 .pokeIcon {
@@ -135,6 +179,7 @@ button:hover {
   color: white;
   min-width: 35%;
   margin: 0px 2px;
+  padding: 2px;
   height: 34px;
   display: flex;
   border-radius: 100px;
@@ -160,4 +205,10 @@ button:hover {
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 100;
+}
+
+.loadingScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

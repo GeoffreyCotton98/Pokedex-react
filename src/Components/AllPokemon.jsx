@@ -2,38 +2,46 @@ import React from "react";
 import { Container, Grid } from "@mui/material";
 import { useState, useEffect, useCallback } from "react";
 import PokemonCard from "./PokemonCard";
-
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 function AllPokemon() {
   const [pokemons, setPokemons] = useState([]);
-  const [pokeCount, setPokeCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(
+    `https://pokeapi.co/api/v2/pokemon/`
+  );
+  const [nextPageURL, setNextPageURL] = useState();
+  const [previousPageURL, setPreviousPageURL] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     const getPokemon = async () => {
       const pokemonFromServer = await fetchPokemon();
+      setLoading(false);
       setPokemons(pokemonFromServer.results);
-      console.log(pokemons);
+      setNextPageURL(pokemonFromServer.next);
+      setPreviousPageURL(pokemonFromServer.previous);
     };
     getPokemon();
-    console.log(pokeCount, pokemons);
-  }, [pokeCount]);
+  }, [currentPage]);
 
   const fetchPokemon = async () => {
-    const res = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/?offset=${pokeCount}&limit=21`
-    );
+    const res = await fetch(currentPage);
     const data = await res.json();
-
     return data;
   };
 
   const handlePrevious = () => {
-    console.log("previous page");
+    setCurrentPage(previousPageURL);
   };
 
-  const handleNextPage = async (e) => {
-    e.preventDefault();
-    setPokeCount(pokeCount + 21);
+  const handleNextPage = async () => {
+    setCurrentPage(nextPageURL);
   };
+
+  if (loading) {
+    return <h1 className="loadingScreen">app is loading</h1>;
+  }
 
   return (
     <>
@@ -58,10 +66,12 @@ function AllPokemon() {
           >
             <div className="buttons">
               <button onClick={handlePrevious} className="previousButton">
-                previous
+                <ArrowBackIcon />
+                Previous
               </button>
               <button onClick={handleNextPage} className="nextButton">
-                next
+                Next
+                <ArrowForwardIcon />
               </button>
             </div>
           </Grid>

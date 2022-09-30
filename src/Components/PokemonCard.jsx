@@ -28,7 +28,7 @@ function PokemonCard({ pokemon }) {
   };
   return (
     <>
-      <Grid item xs={12} md={6} lg={4}>
+      <Grid item xs={12} md={6} lg={4} className={"hoverBox"}>
         <div className={`pokemonCard ${cardColor} `}>
           <Grid
             container
@@ -72,7 +72,7 @@ function PokemonCard({ pokemon }) {
                     alignItems: "center",
                   }}
                 >
-                  <div className="pokemonType"> {pokeData.id}</div>
+                  <div className="pokemonType"> no.{pokeData.id}</div>
                 </Grid>
               </Grid>
             </Grid>

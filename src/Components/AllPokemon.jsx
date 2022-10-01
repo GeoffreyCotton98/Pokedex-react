@@ -46,6 +46,7 @@ function AllPokemon() {
 
   return (
     <>
+      <div className="backGround"></div>
       <Container
         maxWidth="xl"
         sx={{

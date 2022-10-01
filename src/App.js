@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="backGround"></div>
+
       <Router>
         <Routes>
           <Route exact path="/" element={<AllPokemon />} />

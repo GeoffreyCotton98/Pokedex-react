@@ -81,76 +81,76 @@ button:hover {
 .pokemonCard:hover {
   transform: translateY(-10px);
 }
-.pokemonCard.grass {
+.grass {
   background-color: #7ac74c;
   box-shadow: 12px 12px 30px #7ac74c;
 }
-.pokemonCard.fire {
+.fire {
   background-color: #ee8130;
   box-shadow: 12px 12px 30px #ee8130;
 }
-.pokemonCard.water {
+.water {
   background-color: #6390f0;
   box-shadow: 12px 12px 30px #6390f0;
 }
-.pokemonCard.bug {
+.bug {
   background-color: #a6b91a;
   box-shadow: 12px 12px 30px #a6b91a;
 }
-.pokemonCard.normal {
+.normal {
   background-color: #a8a77a;
   box-shadow: 12px 12px 30px #a8a77a;
 }
-.pokemonCard.poison {
+.poison {
   background-color: #a33ea1;
   box-shadow: 12px 12px 30px #a33ea1;
 }
-.pokemonCard.electric {
+.electric {
   background-color: #f7d02c;
   box-shadow: 12px 12px 30px #f7d02c;
 }
-.pokemonCard.ground {
+.ground {
   background-color: #e2bf65;
   box-shadow: 12px 12px 30px #e2bf65;
 }
-.pokemonCard.fairy {
+.fairy {
   background-color: #d685ad;
   box-shadow: 12px 12px 30px #d685ad;
 }
-.pokemonCard.ghost {
+.ghost {
   background-color: #735797;
   box-shadow: 12px 12px 30px #735797;
 }
-.pokemonCard.ice {
+.ice {
   background-color: #96d9d6;
   box-shadow: 12px 12px 30px #96d9d6;
 }
 
-.pokemonCard.fighting {
+.fighting {
   background-color: #c22e28;
   box-shadow: 12px 12px 30px #c22e28;
 }
-.pokemonCard.psychic {
+.psychic {
   background-color: #f95587;
   box-shadow: 12px 12px 30px #f95587;
 }
-.pokemonCard.rock {
+.rock {
   background-color: #b6a136;
   box-shadow: 12px 12px 30px #b6a136;
 }
-.pokemonCard.steel {
+.steel {
   background-color: #b7b7ce;
   box-shadow: 12px 12px 30px #b7b7ce;
 }
-.pokemonCard.dark {
+.dark {
   background-color: #705746;
   box-shadow: 12px 12px 30px #705746;
 }
-.pokemonCard.dragon {
+.dragon {
   background-color: #6f35fc;
   box-shadow: 12px 12px 30px #6f35fc;
 }
-.pokemonCard.flying {
+.flying {
   background-color: #a98ff3;
   box-shadow: 12px 12px 30px #a98ff3;
 }
@@ -168,11 +168,13 @@ button:hover {
   font-size: 37px;
   font-weight: bold;
   color: white;
+  text-transform: capitalize;
 }
 
 .pokemonType {
   background: rgba(253, 253, 253, 0.2);
   font-size: 19px;
+  text-transform: capitalize;
   color: white;
   min-width: 35%;
   margin: 0px 2px;
@@ -212,6 +214,35 @@ button:hover {
 
 /* single pokemon display */
 
+.singlePokemonName {
+  font-size: 34px;
+  font-weight: bold;
+  text-transform: capitalize;
+  border-bottom: 3px solid;
+  width: min-content;
+  height: min-content;
+}
+
+.pokemonTypes {
+  display: flex;
+  margin-top: 15px;
+}
+
+.singlePokemonTypes {
+  background: rgba(63, 61, 61, 0.2);
+  font-size: 19px;
+  text-transform: capitalize;
+  color: rgb(21, 20, 20);
+  min-width: 18%;
+  margin: 0px 2px;
+  padding: 2px;
+  height: 34px;
+  display: flex;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
 .pokemonDisplayCard {
   height: 600px;
   width: 500px;
@@ -222,61 +253,6 @@ button:hover {
   overflow: hidden;
   box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.2);
   border-radius: 40px;
-}
-.pokemonDisplayCard.grass {
-  background-color: #7ac74c;
-}
-.pokemonDisplayCard.fire {
-  background-color: #ee8130;
-}
-.pokemonDisplayCard.water {
-  background-color: #6390f0;
-}
-.pokemonDisplayCard.bug {
-  background-color: #a6b91a;
-}
-.pokemonDisplayCard.normal {
-  background-color: #a8a77a;
-}
-.pokemonDisplayCard.poison {
-  background-color: #a33ea1;
-}
-.pokemonDisplayCard.electric {
-  background-color: #f7d02c;
-}
-.pokemonDisplayCard.ground {
-  background-color: #e2bf65;
-}
-.pokemonDisplayCard.fairy {
-  background-color: #d685ad;
-}
-.pokemonDisplayCard.ghost {
-  background-color: #735797;
-}
-.pokemonDisplayCard.ice {
-  background-color: #96d9d6;
-}
-
-.pokemonDisplayCard.fighting {
-  background-color: #c22e28;
-}
-.pokemonDisplayCard.psychic {
-  background-color: #f95587;
-}
-.pokemonDisplayCard.rock {
-  background-color: #b6a136;
-}
-.pokemonDisplayCard.steel {
-  background-color: #b7b7ce;
-}
-.pokemonDisplayCard.dark {
-  background-color: #705746;
-}
-.pokemonDisplayCard.dragon {
-  background-color: #6f35fc;
-}
-.pokemonDisplayCard.flying {
-  background-color: #a98ff3;
 }
 
 .cardHover {

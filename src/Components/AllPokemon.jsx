@@ -18,6 +18,7 @@ function AllPokemon() {
     const getPokemon = async () => {
       const pokemonFromServer = await fetchPokemon();
       setLoading(false);
+
       setPokemons(pokemonFromServer.results);
       setNextPageURL(pokemonFromServer.next);
       setPreviousPageURL(pokemonFromServer.previous);

@@ -12,6 +12,7 @@ function SinglePokemon() {
   useEffect(() => {
     const getPokemon = async () => {
       const pokemonFromServer = await fetchPokemon();
+      console.log(pokemonFromServer);
       setPokemon(pokemonFromServer);
       setPokeTypes(pokemonFromServer.types);
       setCardColor(pokemonFromServer.types[0].type.name);
@@ -35,43 +36,45 @@ function SinglePokemon() {
           mt: 12,
         }}
       >
-        <Grid container spacing={2}>
-          <Grid
-            item
-            xs={12}
-            md={12}
-            lg={6}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            className="cardHover"
-          >
-            <div className={`pokemonDisplayCard ${cardColor}`}>
-              <span
-                className="pokemonImageDisplay"
-                style={{
-                  backgroundImage: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png")`,
-                }}
-              ></span>
-              <div className="pokeNumberDecor">#{params.id}</div>
-            </div>
+        <Paper>
+          <Grid container spacing={2}>
+            <Grid
+              item
+              xs={12}
+              md={12}
+              lg={6}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              className="cardHover"
+            >
+              <div className={`pokemonDisplayCard ${cardColor}`}>
+                <span
+                  className="pokemonImageDisplay"
+                  style={{
+                    backgroundImage: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png")`,
+                  }}
+                ></span>
+                <div className="pokeNumberDecor">#{params.id}</div>
+              </div>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={12}
+              lg={6}
+              sx={{
+                display: "flex",
+              }}
+            >
+              <div>{pokemon.name}</div>
+              <br />
+              <div>wt: {pokemon.weight}</div>
+            </Grid>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            md={12}
-            lg={6}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            data
-          </Grid>
-        </Grid>
+        </Paper>
       </Container>
     </>
   );

@@ -21,7 +21,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: saturate(100%) brightness(70%) blur(5px);
+  filter: saturate(100%) brightness(50%) blur(5px);
   z-index: -100;
 }
 
@@ -222,7 +222,6 @@ button:hover {
   overflow: hidden;
   box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.2);
   border-radius: 40px;
-  z-index: -1;
 }
 .pokemonDisplayCard.grass {
   background-color: #7ac74c;

@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Grid, Container, Paper } from "@mui/material";
 import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
-import { minHeight } from "@mui/system";
 
 function SinglePokemon() {
   const [pokemon, setPokemon] = useState({});
   const [pokeTypes, setPokeTypes] = useState([]);
+  const [abilities, setAbilities] = useState([]);
+  const [pokeTitle, setPokeTitle] = useState("");
   const [cardColor, setCardColor] = useState();
   const [flavorText, setFlavorText] = useState("");
 
@@ -17,13 +18,18 @@ function SinglePokemon() {
       console.log(pokemonFromServer);
       setPokemon(pokemonFromServer);
       setPokeTypes(pokemonFromServer.types);
+      setAbilities(pokemonFromServer.abilities);
+
       setCardColor(pokemonFromServer.types[0].type.name);
     };
 
     const getSpecies = async () => {
       const speciesFromServer = await fetchPokemonSpecies();
       console.log(speciesFromServer);
+
       setFlavorText(speciesFromServer.flavor_text_entries[0].flavor_text);
+      setPokeTitle(speciesFromServer.genera[7].genus);
+      console.log(speciesFromServer.genera[7].genus);
     };
     getPokemon();
     getSpecies();
@@ -92,6 +98,7 @@ function SinglePokemon() {
           >
             <section className="pokemonData">
               <div className="singlePokemonName">{pokemon.name}</div>
+              <div>{pokeTitle}</div>
 
               <div className="pokemonTypes">
                 {pokeTypes?.map(function (object, idx) {
@@ -101,6 +108,23 @@ function SinglePokemon() {
                     </div>
                   );
                 })}
+              </div>
+
+              <div className="dataPage">
+                <div className="flavorText">{flavorText}</div>
+
+                <div className="flavorText">Weight: {pokemon.weight}lbs</div>
+
+                <div className="pokemonTypes">
+                  <div>Abilities:</div>
+                  {abilities?.map(function (object, idx) {
+                    return (
+                      <div className="singlePokemonTypes" key={idx}>
+                        {object.ability.name}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </section>
           </Grid>

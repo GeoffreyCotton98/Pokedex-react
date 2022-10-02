@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Grid, Container, Paper } from "@mui/material";
+import { Grid, Container, Paper, Pagination } from "@mui/material";
 import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
 
 function SinglePokemon() {
@@ -9,6 +9,7 @@ function SinglePokemon() {
   const [pokeTypes, setPokeTypes] = useState([]);
   const [abilities, setAbilities] = useState([]);
   const [pokeTitle, setPokeTitle] = useState("");
+  const [generation, setGen] = useState("");
   const [cardColor, setCardColor] = useState();
   const [flavorText, setFlavorText] = useState("");
 
@@ -28,8 +29,8 @@ function SinglePokemon() {
       console.log(speciesFromServer);
 
       setFlavorText(speciesFromServer.flavor_text_entries[0].flavor_text);
+      setGen(speciesFromServer.generation.name);
       setPokeTitle(speciesFromServer.genera[7].genus);
-      console.log(speciesFromServer.genera[7].genus);
     };
     getPokemon();
     getSpecies();
@@ -93,7 +94,6 @@ function SinglePokemon() {
             lg={6}
             sx={{
               display: "flex",
-              transform: "translatey(20px)",
             }}
           >
             <section className="pokemonData">
@@ -103,7 +103,10 @@ function SinglePokemon() {
               <div className="pokemonTypes">
                 {pokeTypes?.map(function (object, idx) {
                   return (
-                    <div className="singlePokemonTypes" key={idx}>
+                    <div
+                      className={`singlePokemonTypes ${object.type.name}`}
+                      key={idx}
+                    >
                       {object.type.name}
                     </div>
                   );
@@ -113,17 +116,21 @@ function SinglePokemon() {
               <div className="dataPage">
                 <div className="flavorText">{flavorText}</div>
 
-                <div className="flavorText">Weight: {pokemon.weight}lbs</div>
+                <div className="pokemonWeight">Weight: {pokemon.weight}lbs</div>
 
-                <div className="pokemonTypes">
-                  <div>Abilities:</div>
-                  {abilities?.map(function (object, idx) {
-                    return (
-                      <div className="singlePokemonTypes" key={idx}>
-                        {object.ability.name}
-                      </div>
-                    );
-                  })}
+                <div className="firstAppear">
+                  First Appearance: {generation}{" "}
+                </div>
+
+                <div className="pokemonAbilitiesContainer">
+                  <div className="abilityTitle">Abilities:</div>
+                  <div className="pokemonAbilities">
+                    {abilities?.map(function (object) {
+                      return (
+                        <div className="ability">{object.ability.name}</div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </section>

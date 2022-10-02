@@ -55,6 +55,7 @@ function SinglePokemon() {
         }}
       >
         <Grid container spacing={2}>
+          {/* first item: pokemon picture */}
           <Grid
             item
             xs={12}
@@ -77,6 +78,8 @@ function SinglePokemon() {
               <div className="pokeNumberDecor">#{params.id}</div>
             </div>
           </Grid>
+
+          {/* second item: pokemon data */}
           <Grid
             item
             xs={12}
@@ -84,32 +87,22 @@ function SinglePokemon() {
             lg={6}
             sx={{
               display: "flex",
+              transform: "translatey(20px)",
             }}
           >
-            <Grid container spacing={2}>
-              <Grid
-                item
-                xs={12}
-                sx={{
-                  maxHeight: 150,
-                }}
-              >
-                <div className="singlePokemonName">{pokemon.name}</div>
+            <section className="pokemonData">
+              <div className="singlePokemonName">{pokemon.name}</div>
 
-                <div className="pokemonTypes">
-                  {pokeTypes?.map(function (object, idx) {
-                    return (
-                      <div className="singlePokemonTypes" key={idx}>
-                        {object.type.name}
-                      </div>
-                    );
-                  })}
-                </div>
-              </Grid>
-              <Grid item xs={12}>
-                <div>{flavorText}</div>
-              </Grid>
-            </Grid>
+              <div className="pokemonTypes">
+                {pokeTypes?.map(function (object, idx) {
+                  return (
+                    <div className="singlePokemonTypes" key={idx}>
+                      {object.type.name}
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
           </Grid>
         </Grid>
       </Container>

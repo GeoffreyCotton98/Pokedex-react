@@ -1,5 +1,6 @@
 @import url("http://fonts.cdnfonts.com/css/depixel");
 @import url("http://fonts.cdnfonts.com/css/resotyg-personal-use");
+@import url("http://fonts.cdnfonts.com/css/e-eloxy");
 * {
   box-sizing: border-box;
 }
@@ -215,6 +216,7 @@ button:hover {
 /* single pokemon display */
 
 .singlePokemonName {
+  font-family: "e Eloxy", sans-serif;
   font-size: 34px;
   font-weight: bold;
   text-transform: capitalize;

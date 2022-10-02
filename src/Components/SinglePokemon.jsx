@@ -49,7 +49,7 @@ function SinglePokemon() {
   return (
     <>
       <Container
-        maxWidth="lg"
+        maxWidth="xl"
         sx={{
           mt: 14,
         }}
@@ -87,7 +87,13 @@ function SinglePokemon() {
             }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              <Grid
+                item
+                xs={12}
+                sx={{
+                  maxHeight: 150,
+                }}
+              >
                 <div className="singlePokemonName">{pokemon.name}</div>
 
                 <div className="pokemonTypes">

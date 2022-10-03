@@ -12,6 +12,7 @@ function SinglePokemon() {
   const [cardColor, setCardColor] = useState();
   const [flavorText, setFlavorText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const params = useParams();
 
   useEffect(() => {
     const getPokemon = async () => {
@@ -29,8 +30,7 @@ function SinglePokemon() {
     };
     getPokemon();
     getSpecies();
-  }, []);
-  const params = useParams();
+  }, [params.id]);
 
   const fetchPokemon = async () => {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.id}

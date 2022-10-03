@@ -7,9 +7,8 @@ import Header from "./Components/Header";
 function App() {
   return (
     <>
-      <Header />
-
       <Router>
+        <Header />
         <Routes>
           <Route exact path="/" element={<AllPokemon />} />
           <Route exact path="/Pokemon/:id" element={<SinglePokemon />} />

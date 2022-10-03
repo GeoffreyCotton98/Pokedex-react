@@ -28,7 +28,7 @@ function AllPokemon() {
 
   const fetchPokemon = async () => {
     const res = await fetch(currentPage);
-    const data = await res.json();
+    const data = res.json();
     return data;
   };
 

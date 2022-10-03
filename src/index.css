@@ -227,7 +227,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.2);
   border-radius: 40px;
 }
 
@@ -302,7 +302,7 @@ button:hover {
 
 .dataPage {
   background-color: rgb(227, 227, 227);
-  box-shadow: 15px 15px 9px rgba(143, 140, 140, 0.2);
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.2);
   padding: 2em;
   margin-top: 2rem;
   min-height: 420px;

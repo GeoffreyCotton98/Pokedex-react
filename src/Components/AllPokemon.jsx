@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Grid } from "@mui/material";
 import { useState, useEffect, useCallback } from "react";
+import { toast } from "react-toastify";
 import PokemonCard from "./PokemonCard";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -33,7 +34,12 @@ function AllPokemon() {
   };
 
   const handlePrevious = () => {
-    setCurrentPage(previousPageURL);
+    if (previousPageURL === null) {
+      toast("No more pages!");
+      return;
+    } else {
+      setCurrentPage(previousPageURL);
+    }
   };
 
   const handleNextPage = async () => {

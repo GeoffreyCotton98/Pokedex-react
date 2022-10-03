@@ -11,12 +11,18 @@ function PokeData({ currentPage, pokemon, flavorText, generation }) {
       <div className="dataPage">
         <div className="flavorText">{flavorText}</div>
 
-        <div className="pokemonWeight">Weight: {pokemon.weight}lbs</div>
+        <div className="pokemonWeight">
+          <strong>Weight:</strong> {pokemon.weight}lbs
+        </div>
 
-        <div className="firstAppear">First Appearance: {generation} </div>
+        <div className="firstAppear">
+          <strong>First Appearance:</strong> {generation}{" "}
+        </div>
 
         <div className="pokemonAbilitiesContainer">
-          <div className="abilityTitle">Abilities:</div>
+          <div className="abilityTitle">
+            <strong>Abilities:</strong>
+          </div>
           <div className="pokemonAbilities">
             {pokemon.abilities?.map(function (object, idx) {
               return (

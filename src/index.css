@@ -247,13 +247,14 @@ button:hover {
 .pokeNumberDecor {
   font-family: monospace;
   font-weight: 900;
+  font-style: italic;
   position: absolute;
   color: rgb(255, 255, 255);
   z-index: 0;
   top: 10px;
   left: 10px;
   font-size: 120px;
-  opacity: 0.3;
+  opacity: 0.25;
 }
 
 .singlePokemonName {
@@ -295,11 +296,12 @@ button:hover {
 }
 
 .dataPage {
+  font-family: "e Eloxy", sans-serif;
   background-color: rgb(239, 237, 237);
   box-shadow: 15px 15px 5px rgba(143, 140, 140, 0.2);
   padding: 2em;
   margin-top: 2rem;
-  min-height: 400px;
+  min-height: 420px;
   border-radius: 20px;
 }
 
@@ -347,4 +349,37 @@ button:hover {
   border-radius: 100px;
   justify-content: center;
   align-items: center;
+}
+
+.baseStat {
+  display: flex;
+  flex-direction: row;
+}
+
+/* page buttons */
+
+.pageButtons {
+  font-family: "e Eloxy", sans-serif;
+  display: flex;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.pageButton {
+  margin-right: 20px;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  background-color: rgb(213, 211, 211);
+  color: rgb(255, 255, 255);
+  text-transform: capitalize;
+  transition: transform 0.4s;
+}
+.pageButton:hover {
+  transform: scale(1.04);
+  transition: transform 0.2s;
+}
+
+.pageButton:active {
+  transform: scale(1.1);
+  transition: transform 0.1s;
 }

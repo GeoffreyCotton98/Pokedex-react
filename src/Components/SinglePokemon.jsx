@@ -2,23 +2,27 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Grid, Container, Paper, Pagination } from "@mui/material";
-import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
+
+import PokeData from "./PokeData";
 
 function SinglePokemon() {
   const [pokemon, setPokemon] = useState({});
   const [pokeTypes, setPokeTypes] = useState([]);
+  const [pokeStats, setStats] = useState([]);
   const [abilities, setAbilities] = useState([]);
   const [pokeTitle, setPokeTitle] = useState("");
   const [generation, setGen] = useState("");
   const [cardColor, setCardColor] = useState();
   const [flavorText, setFlavorText] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const getPokemon = async () => {
       const pokemonFromServer = await fetchPokemon();
-      console.log(pokemonFromServer);
+      console.log(pokemonFromServer.stats);
       setPokemon(pokemonFromServer);
       setPokeTypes(pokemonFromServer.types);
+      setStats(pokemonFromServer.stats);
       setAbilities(pokemonFromServer.abilities);
 
       setCardColor(pokemonFromServer.types[0].type.name);
@@ -52,6 +56,13 @@ function SinglePokemon() {
 
     const data = res.json();
     return data;
+  };
+
+  const handleOverview = () => {
+    setCurrentPage(1);
+  };
+  const handleStats = () => {
+    setCurrentPage(2);
   };
   return (
     <>
@@ -87,18 +98,10 @@ function SinglePokemon() {
           </Grid>
 
           {/* second item: pokemon data */}
-          <Grid
-            item
-            xs={12}
-            md={12}
-            lg={6}
-            sx={{
-              display: "flex",
-            }}
-          >
+          <Grid item xs={12} md={12} lg={6}>
             <section className="pokemonData">
               <div className="singlePokemonName">{pokemon.name}</div>
-              <div>{pokeTitle}</div>
+              <div>The {pokeTitle}</div>
 
               <div className="pokemonTypes">
                 {pokeTypes?.map(function (object, idx) {
@@ -112,25 +115,22 @@ function SinglePokemon() {
                   );
                 })}
               </div>
-
-              <div className="dataPage">
-                <div className="flavorText">{flavorText}</div>
-
-                <div className="pokemonWeight">Weight: {pokemon.weight}lbs</div>
-
-                <div className="firstAppear">
-                  First Appearance: {generation}{" "}
+              <PokeData
+                currentPage={currentPage}
+                pokemon={pokemon}
+                pokeTitle={pokeTitle}
+                pokeTypes={pokeTypes}
+                pokeStats={pokeStats}
+                flavorText={flavorText}
+                generation={generation}
+                abilities={abilities}
+              />
+              <div className="pageButtons">
+                <div className="pageButton" onClick={handleOverview}>
+                  Overview
                 </div>
-
-                <div className="pokemonAbilitiesContainer">
-                  <div className="abilityTitle">Abilities:</div>
-                  <div className="pokemonAbilities">
-                    {abilities?.map(function (object) {
-                      return (
-                        <div className="ability">{object.ability.name}</div>
-                      );
-                    })}
-                  </div>
+                <div className="pageButton" onClick={handleStats}>
+                  Base Stats
                 </div>
               </div>
             </section>

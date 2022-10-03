@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import AllPokemon from "./Components/AllPokemon";
 import SinglePokemon from "./Components/SinglePokemon";
@@ -14,6 +16,7 @@ function App() {
           <Route exact path="/Pokemon/:id" element={<SinglePokemon />} />
         </Routes>
       </Router>
+      <ToastContainer />
     </>
   );
 }

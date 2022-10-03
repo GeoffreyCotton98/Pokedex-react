@@ -4,6 +4,7 @@ import GenSelect from "./GenSelect";
 import { useNavigate } from "react-router-dom";
 import { Grid, Button } from "@mui/material";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 function SearchBar() {
   const [searchedPokemon, setSearch] = useState("");
@@ -17,14 +18,14 @@ function SearchBar() {
         `https://pokeapi.co/api/v2/pokemon/${searchedPokemon.toLowerCase()}`
       );
       if (!res.ok) {
-        window.alert("pokemon not found");
-        return;
+        toast.error("Pokemon not found");
+        throw new Error(res.status);
       } else {
         const data = res.json();
-        console.log(data);
         return data;
       }
     };
+
     const searchForPokemon = async () => {
       const pokemonFromSearch = await getPokemon();
       setPokemon(pokemonFromSearch);
@@ -32,18 +33,19 @@ function SearchBar() {
     };
 
     searchForPokemon();
+
+    setSearch("");
   };
 
   const handleChange = (e) => {
     setSearch(e.target.value);
-    console.log(e.target.value);
   };
 
   return (
     <>
       <nav className="nav">
         <Grid container spacing={1}>
-          <Grid item xs={8} md={8} lg={8}>
+          <Grid item xs={9} md={9} lg={9}>
             <Textfield
               fullWidth
               value={searchedPokemon}
@@ -53,7 +55,15 @@ function SearchBar() {
               variant="outlined"
             />
           </Grid>
-          <Grid item xs={2} md={2} lg={2}>
+          <Grid
+            item
+            xs={3}
+            md={3}
+            lg={3}
+            sx={{
+              display: "flex",
+            }}
+          >
             <Button variant="contained" onClick={requestPokemonSearch}>
               Submit
             </Button>

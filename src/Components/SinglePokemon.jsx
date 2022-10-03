@@ -17,7 +17,7 @@ function SinglePokemon() {
   useEffect(() => {
     const getPokemon = async () => {
       const pokemonFromServer = await fetchPokemon();
-      console.log(pokemonFromServer);
+
       setPokemon(pokemonFromServer);
       setCardColor(pokemonFromServer.types[0].type.name);
     };

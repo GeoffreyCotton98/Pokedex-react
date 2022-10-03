@@ -1,9 +1,11 @@
 import React from "react";
 import { Grid, Container } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import CatchingPokemonIcon from "@mui/icons-material/CatchingPokemon";
 import SearchBar from "./SearchBar";
 
 function Header() {
+  const navigate = useNavigate();
   return (
     <>
       <Grid
@@ -29,7 +31,7 @@ function Header() {
             alignItems: "center",
           }}
         >
-          <header className="header">
+          <header className="header" onClick={() => navigate("/")}>
             <CatchingPokemonIcon
               sx={{
                 fontSize: 50,

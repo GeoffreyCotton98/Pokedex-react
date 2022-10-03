@@ -7,9 +7,6 @@ import PokeData from "./PokeData";
 
 function SinglePokemon() {
   const [pokemon, setPokemon] = useState({});
-  const [pokeTypes, setPokeTypes] = useState([]);
-  const [pokeStats, setStats] = useState([]);
-  const [abilities, setAbilities] = useState([]);
   const [pokeTitle, setPokeTitle] = useState("");
   const [generation, setGen] = useState("");
   const [cardColor, setCardColor] = useState();
@@ -19,19 +16,13 @@ function SinglePokemon() {
   useEffect(() => {
     const getPokemon = async () => {
       const pokemonFromServer = await fetchPokemon();
-      console.log(pokemonFromServer.stats);
+      console.log(pokemonFromServer);
       setPokemon(pokemonFromServer);
-      setPokeTypes(pokemonFromServer.types);
-      setStats(pokemonFromServer.stats);
-      setAbilities(pokemonFromServer.abilities);
-
       setCardColor(pokemonFromServer.types[0].type.name);
     };
 
     const getSpecies = async () => {
       const speciesFromServer = await fetchPokemonSpecies();
-      console.log(speciesFromServer);
-
       setFlavorText(speciesFromServer.flavor_text_entries[0].flavor_text);
       setGen(speciesFromServer.generation.name);
       setPokeTitle(speciesFromServer.genera[7].genus);
@@ -104,7 +95,7 @@ function SinglePokemon() {
               <div>The {pokeTitle}</div>
 
               <div className="pokemonTypes">
-                {pokeTypes?.map(function (object, idx) {
+                {pokemon.types?.map(function (object, idx) {
                   return (
                     <div
                       className={`singlePokemonTypes ${object.type.name}`}
@@ -119,11 +110,8 @@ function SinglePokemon() {
                 currentPage={currentPage}
                 pokemon={pokemon}
                 pokeTitle={pokeTitle}
-                pokeTypes={pokeTypes}
-                pokeStats={pokeStats}
                 flavorText={flavorText}
                 generation={generation}
-                abilities={abilities}
               />
               <div className="pageButtons">
                 <div className="pageButton" onClick={handleOverview}>

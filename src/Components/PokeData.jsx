@@ -2,16 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Grid, LinearProgress } from "@mui/material";
 
-function PokeData({
-  currentPage,
-  pokemon,
-  pokeTitle,
-  pokeTypes,
-  pokeStats,
-  flavorText,
-  generation,
-  abilities,
-}) {
+function PokeData({ currentPage, pokemon, flavorText, generation }) {
+  useEffect(() => {}, []);
+
   // conditionally renders based on page number
   if (currentPage === 1) {
     return (
@@ -25,7 +18,7 @@ function PokeData({
         <div className="pokemonAbilitiesContainer">
           <div className="abilityTitle">Abilities:</div>
           <div className="pokemonAbilities">
-            {abilities?.map(function (object, idx) {
+            {pokemon.abilities?.map(function (object, idx) {
               return (
                 <div className="ability" key={idx}>
                   {object.ability.name}
@@ -42,7 +35,7 @@ function PokeData({
     return (
       <div className="dataPage">
         <Grid container spacing={1}>
-          {pokeStats?.map(function (object, idx) {
+          {pokemon.stats?.map(function (object, idx) {
             return (
               <Grid
                 item
@@ -79,12 +72,18 @@ function PokeData({
               mt: 3,
             }}
           >
-            Total:{" "}
-            {pokeStats
-              .map((object) => object.base_stat)
-              .reduce(
-                (previousValue, currentValue) => previousValue + currentValue
-              )}
+            <div className="statTotal">
+              Total:{" "}
+              <strong style={{ marginLeft: "10px" }}>
+                {" "}
+                {pokemon.stats
+                  .map((object) => object.base_stat)
+                  .reduce(
+                    (previousValue, currentValue) =>
+                      previousValue + currentValue
+                  )}
+              </strong>
+            </div>
           </Grid>
         </Grid>
       </div>
